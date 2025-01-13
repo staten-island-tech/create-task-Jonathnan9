@@ -64,7 +64,7 @@ function createMovieCard(movies) {
               <p class="line-clamp-4"><strong>Overview:</strong> ${movieOverview}</p>
               <p><strong>Release Date:</strong> ${movieReleaseDate}</p>
               <p><strong>Rating:</strong> ${movie.vote_average}</p>
-              <p><strong>Genres:</strong> ${genreNames}</p>
+              <p><strong>Vote Count:</strong> ${movie.vote_count}</p>
             </div>
           </div>
         </div>
