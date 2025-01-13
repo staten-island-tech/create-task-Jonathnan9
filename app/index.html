@@ -1,13 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Movie Recommendation</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="bg-base-200" id="topBar">
+      <div class=" relative w-full h-16 flex justify-between items-center px-4" id="barContainer">
+        <div class="flex items-center ml-auto space-x-4">
+          <button class="dropdown dropdown-bottom dropdown-right btn btn-square btn-ghost" id="sortOpt">
+            <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              <fieldset class="border-b-2 border-neutral-600 mb-2">
+                <legend class="font-bold">Genre</legend>
+                <label class="block text-left"><input type="checkbox" name="genre" value="28" /> Action</label>
+                <label class="block text-left"><input type="checkbox" name="genre" value="35" /> Comedy</label>
+                <label class="block text-left"><input type="checkbox" name="genre" value="18" /> Drama</label>
+                <label class="block text-left"><input type="checkbox" name="genre" value="27" /> Horror</label>
+                <label class="block text-left"><input type="checkbox" name="genre" value="12" /> Adventure</label>
+              </fieldset>
+            
+              <div class="relative max-w-xs mb-2" id="yearBar">
+                <input id="yearInput" class="w-full py-2 pl-4 pr-10 border border-neutral-600 rounded-md text-base bg-transparent" type="number" placeholder="Year (2020-2023)">
+                <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-e"></i>
+              </div>
+            
+              <div class="relative max-w-xs mb-2" id="ratingBar">
+                <input id="ratingInput" class="w-full py-2 pl-4 pr-10 border border-neutral-600 rounded-md text-base bg-transparent" type="number" min="1" max="10" step="0.1" placeholder="Rating (1-10)">
+                <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-e"></i>
+              </div>
+            
+              <fieldset class="border-b-2 border-neutral-600 mb-2">
+                <legend class="font-bold">Sort by</legend>
+                <label class="block text-left"><input type="radio" name="sortBy" value="popularity.desc" /> Popularity</label>
+                <label class="block text-left"><input type="radio" name="sortBy" value="vote_average.desc" /> Rating</label>
+                <label class="block text-left"><input type="radio" name="sortBy" value="release_date.desc" /> Release Date</label>
+              </fieldset>
+            
+              <!-- <fieldset class="border-b-2 border-neutral-600 mb-2">
+                <legend class="font-bold">Age Rating</legend>
+                <label class="block text-left"><input type="radio" name="ageRating" value="G" /> G</label>
+                <label class="block text-left"><input type="radio" name="ageRating" value="PG" /> PG</label>
+                <label class="block text-left"><input type="radio" name="ageRating" value="PG-13" /> PG-13</label>
+                <label class="block text-left"><input type="radio" name="ageRating" value="R" /> R</label>
+                <label class="block text-left"><input type="radio" name="ageRating" value="NC-17" /> NC-17</label>
+          
+                
+              </fieldset>
+               -->
+            
+            
+              <p class="text-xxxxs mt-2">Note: You can only pick one option from each section, and I haven't added more sorting options.</p>
+            </ul>
+            
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="inline-block h-5 w-5 stroke-current">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+          <img src="/idontwannabesued.png" alt="nosue" class="h-6 w-6"/>
+        </div>
+        
+
+        <div class="flex-grow text-center">
+          <h1 class="font-bold text-5xl">movie find</h1>
+        </div>
+
+        <div class="relative max-w-xs ml-auto" id="searchBar">
+          <input id="searchInput" class="w-full py-2 pl-4 pr-10 border border-neutral-600 rounded-md text-base bg-transparent" type="text" placeholder="Search..">
+          <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-e"></i> 
+        </div>
+      </div>
+    </div>
+    
+
+    
+    <div id="boxes" class="flex flex-row mx-auto items-center gap-2 flex-wrap"></div>
+
+    <div id="pageChange" class="flex justify-center my-4">
+    </div>
+
+    <div id="bottomBox" class="w-full h-20 bg-neutral text-center mt-8 p-4 text-white">
+      <p class="font-bold text-lg">no sue pls</p>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
+
